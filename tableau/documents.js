@@ -23,6 +23,9 @@
             id: "issn",
             dataType: tableau.dataTypeEnum.string
         }, {
+            id: "isbn",
+            dataType: tableau.dataTypeEnum.string
+        }, {
             id: "volume",
             dataType: tableau.dataTypeEnum.string
         }, {
@@ -124,6 +127,7 @@ function parseResponse(url, successCallback, table, response, doneCallback, star
               title: entry['dc:title'],
               publicationName: entry['prism:publicationName'],
               issn: entry['prism:issn'],
+              isbn: entry['prism:isbn'],
               volume: entry['prism:volume'],
               issueIdentifier: entry['prism:issueIdentifier'],
               coverDate: entry['prism:coverDate'],
@@ -178,7 +182,7 @@ function parseResponse(url, successCallback, table, response, doneCallback, star
 }
 
 function _jsonpAjax4(url, successCallback, table, doneCallback, start, pace, max, cursor, token) {
-   var finalurl = url + '&field=eid,source-id,dc:title,prism:publicationName,prism:issn,prism:volume,prism:issueIdentifier,prism:coverDate,dc:creator,citedby-count,prism:aggregationType,subtypeDescription,openaccess,fund-sponsor,author'
+   var finalurl = url + '&field=eid,source-id,dc:title,prism:publicationName,prism:issn,prism:isbn,prism:volume,prism:issueIdentifier,prism:coverDate,dc:creator,citedby-count,prism:aggregationType,subtypeDescription,openaccess,fund-sponsor,author'
         + '&sort=citedby-count'
         + "&cursor=" + encodeURIComponent(cursor) + "&count=" + pace
 
