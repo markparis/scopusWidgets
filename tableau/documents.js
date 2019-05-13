@@ -49,6 +49,9 @@
         }, {
             id: "openaccessFlag",
             dataType: tableau.dataTypeEnum.string
+        }, {
+            id: "fundSponsor",
+            dataType: tableau.dataTypeEnum.string
         }];
 
         var tableSchema = {
@@ -127,7 +130,8 @@ function parseResponse(url, successCallback, table, response, doneCallback, star
               citedbycount: entry['citedby-count'],
               aggregationType: entry['prism:aggregationType'],
               subtypeDescription: entry['subtypeDescription'],
-              openaccessFlag: entry['openaccessFlag']
+              openaccessFlag: entry['openaccessFlag'],
+              fundSponsor: entry['fund-sponsor']
         }]
 
         for (var j = 0; j < bombs.length; j++) {
@@ -174,7 +178,7 @@ function parseResponse(url, successCallback, table, response, doneCallback, star
 }
 
 function _jsonpAjax4(url, successCallback, table, doneCallback, start, pace, max, cursor, token) {
-   var finalurl = url + '&field=eid,source-id,dc:title,prism:publicationName,prism:issn,prism:volume,prism:issueIdentifier,prism:coverDate,dc:creator,citedby-count,prism:aggregationType,subtypeDescription,openaccess,author'
+   var finalurl = url + '&field=eid,source-id,dc:title,prism:publicationName,prism:issn,prism:volume,prism:issueIdentifier,prism:coverDate,dc:creator,citedby-count,prism:aggregationType,subtypeDescription,openaccess,fund-sponsor,author'
         + '&sort=citedby-count'
         + "&cursor=" + encodeURIComponent(cursor) + "&count=" + pace
 
