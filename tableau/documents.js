@@ -14,22 +14,22 @@
             id: "sourceID",
             dataType: tableau.dataTypeEnum.string
         }, {
-            id: "arttitle",
+            id: "title",
             dataType: tableau.dataTypeEnum.string
         }, {
-            id: "pubname",
+            id: "publicationName",
             dataType: tableau.dataTypeEnum.string
         }, {
             id: "issn",
             dataType: tableau.dataTypeEnum.string
         }, {
-            id: "volnum",
+            id: "volume",
             dataType: tableau.dataTypeEnum.string
         }, {
-            id: "issnum",
+            id: "issueIdentifier",
             dataType: tableau.dataTypeEnum.string
         }, {
-            id: "coverdate",
+            id: "coverDate",
             dataType: tableau.dataTypeEnum.date
         }, {
             id: "authname",
@@ -44,10 +44,10 @@
             id: "aggregationType",
             dataType: tableau.dataTypeEnum.string
         }, {
-            id: "aggregationSubtype",
+            id: "subtypeDescription",
             dataType: tableau.dataTypeEnum.string
         }, {
-            id: "oaflag",
+            id: "oaFlag",
             dataType: tableau.dataTypeEnum.string
         }];
 
@@ -118,16 +118,16 @@ function parseResponse(url, successCallback, table, response, doneCallback, star
         var tableEntries = [{
               eid: entry['eid'],
               sourceID: entry['source-id'],
-              arttitle: entry['dc:title'],
-              pubname: entry['prism:publicationName'],
+              title: entry['dc:title'],
+              publicationName: entry['prism:publicationName'],
               issn: entry['prism:issn'],
-              volnum: entry['prism:volume'],
-              issnum: entry['prism:issueIdentifier'],
-              coverdate: entry['prism:coverDate'],
+              volume: entry['prism:volume'],
+              issueIdentifier: entry['prism:issueIdentifier'],
+              coverDate: entry['prism:coverDate'],
               citedbycount: entry['citedby-count'],
               aggregationType: entry['prism:aggregationType'],
-              aggregationSubtype: entry['subtypeDescription'],
-              oaflag: entry['openaccessFlag']
+              subtypeDescription: entry['subtypeDescription'],
+              oaFlag: entry['openaccessFlag']
         }]
 
         for (var j = 0; j < bombs.length; j++) {
@@ -174,7 +174,7 @@ function parseResponse(url, successCallback, table, response, doneCallback, star
 }
 
 function _jsonpAjax4(url, successCallback, table, doneCallback, start, pace, max, cursor, token) {
-   var finalurl = url + '&field=eid,source-id,dc:title,dc:creator,citedby-count,prism:aggregationType,author'
+   var finalurl = url + '&field=eid,source-id,dc:title,prism:publicationName,prism:issn,prism:volume,prism:coverDate,dc:creator,citedby-count,prism:aggregationType,prism:subtypeDescription,openaccessFlag,author'
         + '&sort=citedby-count'
         + "&cursor=" + encodeURIComponent(cursor) + "&count=" + pace
 
