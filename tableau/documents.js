@@ -14,8 +14,23 @@
             id: "sourceID",
             dataType: tableau.dataTypeEnum.string
         }, {
-            id: "title",
+            id: "arttitle",
             dataType: tableau.dataTypeEnum.string
+        }, {
+            id: "pubname",
+            dataType: tableau.dataTypeEnum.string
+        }, {
+            id: "issn",
+            dataType: tableau.dataTypeEnum.string
+        }, {
+            id: "volnum",
+            dataType: tableau.dataTypeEnum.string
+        }, {
+            id: "issnum",
+            dataType: tableau.dataTypeEnum.string
+        }, {
+            id: "coverdate",
+            dataType: tableau.dataTypeEnum.date
         }, {
             id: "authname",
             dataType: tableau.dataTypeEnum.string
@@ -27,6 +42,12 @@
             dataType: tableau.dataTypeEnum.int
         }, {
             id: "aggregationType",
+            dataType: tableau.dataTypeEnum.string
+        }, {
+            id: "aggregationSubtype",
+            dataType: tableau.dataTypeEnum.string
+        }, {
+            id: "oaflag",
             dataType: tableau.dataTypeEnum.string
         }];
 
@@ -97,9 +118,16 @@ function parseResponse(url, successCallback, table, response, doneCallback, star
         var tableEntries = [{
               eid: entry['eid'],
               sourceID: entry['source-id'],
-              title: entry['dc:title'],
+              arttitle: entry['dc:title'],
+              pubname: entry['prism:publicationName'],
+              issn: entry['prism:issn'],
+              volnum: entry['prism:volume'],
+              issnum: entry['prism:issueIdentifier'],
+              coverdate: entry['prism:coverDate'],
               citedbycount: entry['citedby-count'],
               aggregationType: entry['prism:aggregationType'],
+              aggregationSubtype: entry['subtypeDescription'],
+              oaflag: entry['openaccessFlag']
         }]
 
         for (var j = 0; j < bombs.length; j++) {
