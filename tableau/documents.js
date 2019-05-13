@@ -47,7 +47,7 @@
             id: "subtypeDescription",
             dataType: tableau.dataTypeEnum.string
         }, {
-            id: "oaFlag",
+            id: "openaccessFlag",
             dataType: tableau.dataTypeEnum.string
         }];
 
@@ -127,7 +127,7 @@ function parseResponse(url, successCallback, table, response, doneCallback, star
               citedbycount: entry['citedby-count'],
               aggregationType: entry['prism:aggregationType'],
               subtypeDescription: entry['subtypeDescription'],
-              oaFlag: entry['openaccessFlag']
+              openaccessFlag: entry['openaccessFlag']
         }]
 
         for (var j = 0; j < bombs.length; j++) {
