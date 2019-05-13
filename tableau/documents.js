@@ -174,7 +174,7 @@ function parseResponse(url, successCallback, table, response, doneCallback, star
 }
 
 function _jsonpAjax4(url, successCallback, table, doneCallback, start, pace, max, cursor, token) {
-   var finalurl = url + '&field=eid,source-id,dc:title,prism:publicationName,prism:issn,prism:volume,prism:coverDate,dc:creator,citedby-count,prism:aggregationType,prism:subtypeDescription,openaccessFlag,author'
+   var finalurl = url + '&field=eid,source-id,dc:title,prism:publicationName,prism:issn,prism:volume,prism:issueIdentifier,prism:coverDate,dc:creator,citedby-count,prism:aggregationType,prism:subtypeDescription,openaccessFlag,author'
         + '&sort=citedby-count'
         + "&cursor=" + encodeURIComponent(cursor) + "&count=" + pace
 
