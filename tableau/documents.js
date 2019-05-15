@@ -151,7 +151,7 @@ function parseResponse(url, successCallback, table, response, doneCallback, star
               var row = copySimpleDictionary(tableEntries[k])
               for (var m = 0; m < bomb.selectors.length; m++) {
                 var bombSelector = bomb.selectors[m]
-                if (typeof(row[bombSelector]) != undefined){
+                if (typeof(row[bombSelector]) !== 'undefined'){
                     row[bombSelector] = row[bombSelector] + ", " + newValuesToAdd[l][bombSelector];
                 }
                 else {
