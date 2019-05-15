@@ -147,8 +147,9 @@ function parseResponse(url, successCallback, table, response, doneCallback, star
           var newTableEntries = []
 
           for (var k = 0; k < tableEntries.length; k++) {
+            var row = copySimpleDictionary(tableEntries[k])
             for (var l = 0; l < newValuesToAdd.length; l++) {
-              var row = copySimpleDictionary(tableEntries[k])
+              
               for (var m = 0; m < bomb.selectors.length; m++) {
                 var bombSelector = bomb.selectors[m]
                 if (typeof(row[bombSelector]) !== 'undefined'){
